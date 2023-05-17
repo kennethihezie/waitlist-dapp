@@ -24,7 +24,8 @@ Clarinet.test({
         ])
          // Get the first (and only) transaction receipt
         let [ receipt ] = block.receipts
-        receipt.result.expectUint(1)
+        
+        receipt.result.expectOk().expectUint(1)
 
         //Get the counter value
         let waitListCount = chain.callReadOnlyFn("waitlist", "wait-list-count", [], deployer.address)
@@ -39,7 +40,7 @@ Clarinet.test({
          // Get the first (and only) transaction receipt
         let [ _receipt ] = _block.receipts
 
-        _receipt.result.expectUint(0)
+        _receipt.result.expectOk().expectUint(0)
     },
 })
 

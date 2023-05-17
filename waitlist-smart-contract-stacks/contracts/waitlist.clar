@@ -3,7 +3,7 @@
 ;; version:
 ;; summary:
 ;; description:
-
+;; author: collins ihezie
 ;; traits
 ;;
 
@@ -49,12 +49,12 @@
 
 ;; read only functions
 (define-read-only (wait-list-count) 
-   (ok (var-get number-joined-principal))
+   (var-get number-joined-principal)
 )
 
 ;; private functions
 (define-private (check-if-principal-is-in-waitlist) 
-  (not (is-eq (unwrap-panic (map-get? waitlist-address tx-sender)) true))
+  (not (is-eq (default-to false (map-get? waitlist-address tx-sender)) true))
 )
 
 (define-private (check-if-waitlist-is-full) 
