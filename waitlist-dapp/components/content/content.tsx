@@ -1,17 +1,22 @@
 import Button from "../button/button"
 import { IButtonProps } from "../interfaces/button-interface"
 
+interface IContent {
+    count: string
+    children: any
+    title: string
+    subTitle: string
+}
 
-const Content = ({ children }: any) => {
+const Content = ({ count, children, title, subTitle }: IContent) => {
     return (
         <div className="flex flex-col space-y-2 mt-8 md:mt-0">
-            <p className="text-2xl font-bold">Welcome To Crypto Dev!</p>
-            <p className="text-sm">Its an nft collection for developers in Crypto</p>
-            <p className="text-sm">3 has already joined the waitlist</p>
+            <p className="text-2xl font-bold">{ title }</p>
+            <p className="text-sm">{ subTitle }</p>
+            <p className="text-sm">{`${count} has already joined the waitlist`}</p>
             <br />
             
            
-
             { children }
         </div>
     )

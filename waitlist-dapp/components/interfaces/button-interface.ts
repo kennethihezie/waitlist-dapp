@@ -1,4 +1,5 @@
 export interface IButtonProps {
     text: string
-    onclick: () => {}
+    onclick: (e: any) => {}
+    loading: boolean
 }

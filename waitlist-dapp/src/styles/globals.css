@@ -4,6 +4,6 @@
 
 @layer base{
   body{
-    @apply flex items-center justify-center h-screen bg-zinc-700
+    @apply flex items-center justify-center bg-zinc-700
   }
 }

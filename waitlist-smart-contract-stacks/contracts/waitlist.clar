@@ -12,8 +12,8 @@
 
 ;; constants
 (define-constant max-waitlist-number u10)
-(define-constant principal-in-waitlist (err u101))
-(define-constant waitlist-is-full (err u105))
+(define-constant principal-in-waitlist-error (err u101))
+(define-constant waitlist-is-full-error (err u105))
 
 ;; data vars
 (define-data-var number-joined-principal uint u0)
@@ -26,8 +26,8 @@
   (let 
      (
         (count (+ (var-get number-joined-principal) u1))) 
-        (asserts! (check-if-principal-is-in-waitlist) principal-in-waitlist)
-        (asserts! (check-if-waitlist-is-full) waitlist-is-full)
+        (asserts! (check-if-principal-is-in-waitlist) principal-in-waitlist-error)
+        (asserts! (check-if-waitlist-is-full) waitlist-is-full-error)
         (map-set waitlist-address tx-sender true)
         (var-set number-joined-principal count)
         (ok count)
@@ -38,7 +38,7 @@
   (let 
      ( 
         (count (- (var-get number-joined-principal) u1))) 
-        (asserts! (not (check-if-principal-is-in-waitlist)) principal-in-waitlist)
+        (asserts! (not (check-if-principal-is-in-waitlist)) principal-in-waitlist-error)
         (map-delete waitlist-address tx-sender)
         (var-set number-joined-principal count)
         (ok count)

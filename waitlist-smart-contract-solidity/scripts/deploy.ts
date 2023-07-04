@@ -13,6 +13,8 @@ async function main() {
        console.log('Contracts deployed at: ' + result.options.address);
 }
 
+//Contracts deployed at: 0xe7d4ce58daFA4B7e3De29D2355B2c99093156660
+
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
 main().catch((error) => {

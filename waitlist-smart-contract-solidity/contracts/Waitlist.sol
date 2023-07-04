@@ -19,7 +19,7 @@ contract Waitlist {
     }
 
     modifier _checkIfWaitListIsFull() {
-        require(_totalWaitListAddress < maxWaitListAddress, "WaitList is full");
+        require(numAddressesWhitelisted < maxWaitListAddress, "WaitList is full");
         _;
     }
 
