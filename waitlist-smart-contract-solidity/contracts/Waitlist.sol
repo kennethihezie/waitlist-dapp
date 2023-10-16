@@ -7,7 +7,7 @@ pragma solidity ^0.8.9;
 contract Waitlist {
     uint8 public maxWaitListAddress;
     uint8 public numAddressesWhitelisted;
-    mapping (address => bool) whitelistedAddresses;
+    mapping (address => bool) public whitelistedAddresses;
 
     constructor(uint8 _maxWaitListAddress) {
         maxWaitListAddress = _maxWaitListAddress;
